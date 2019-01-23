@@ -9,7 +9,7 @@ LABEL       author="BierqueJason" maintainer="bierquejason@gmail.com"
 
 RUN         apk add --no-cache --update alpine-sdk libc6-compat ffmpeg python git make pkgconfig autoconf automake libtool bison flex\
             libpcap-dev libglib2.0-dev libgeoip-dev libkrb5-dev \  
-            qt5-default libssl-dev libgtk-3-dev
+            qt5-default libssl-dev libgtk-3-dev \
             && adduser -D -h /home/container container
 
 USER        container
