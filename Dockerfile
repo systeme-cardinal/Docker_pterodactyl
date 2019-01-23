@@ -12,6 +12,7 @@ RUN         apk add --no-cache --update alpine-sdk pixman cairo pango giflib ca-
             && adduser -D -h /home/container container
             
 RUN apk add --update fontconfig wqy-zenhei --update-cache --repository http://nl.alpinelinux.org/alpine/edge/testing --allow-untrusted
+RUN apk add --update ttf-dejavu fontconfig
 
 USER        container
 ENV         USER=container HOME=/home/container
