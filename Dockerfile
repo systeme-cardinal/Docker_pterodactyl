@@ -12,7 +12,25 @@ RUN         apk add --no-cache --update alpine-sdk pixman cairo pango giflib ca-
             && adduser -D -h /home/container container
             
 RUN apk add --update fontconfig wqy-zenhei --update-cache --repository http://nl.alpinelinux.org/alpine/edge/testing --allow-untrusted
-RUN apk add --update ttf-dejavu fontconfig
+RUN apk add --update ttf-dejavu fontconfig \
+&& apk add --no-cache \
+      grep \
+      chromium@edge \
+      freetype@edge \
+      harfbuzz@edge \
+      wqy-zenhei@edge \
+      ttf-liberation@edge \
+      font-noto-devanagari@edge \
+      font-noto-arabic@edge \
+      font-noto-bengali@edge \
+      font-ipa@edge \
+      nss@edge
+RUN apk --no-cache add --update font-adobe-100dpi ttf-dejavu msttcorefonts-installer fontconfig && \
+update-ms-fonts && \
+fc-cache -f
+
+COPY ./fonts/ /usr/share/fonts/
+RUN chmod a+r /usr/share/fonts/PingFang.ttf
 
 USER        container
 ENV         USER=container HOME=/home/container
