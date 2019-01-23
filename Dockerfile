@@ -7,7 +7,7 @@ FROM        node:8-alpine
 
 LABEL       author="BierqueJason" maintainer="bierquejason@gmail.com"
 
-RUN         apk add --no-cache --update libc6-compat ffmpeg python git make \
+RUN         apk add --no-cache --update libc6-compat ffmpeg python git make pkg-config\
             && adduser -D -h /home/container container
 
 USER        container
