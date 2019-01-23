@@ -7,7 +7,7 @@ FROM        node:8-alpine
 
 LABEL       author="BierqueJason" maintainer="bierquejason@gmail.com"
 
-RUN         apk add --no-cache --update alpine-sdk libc6-compat ffmpeg python git make pkgconfig \
+RUN         apk add --no-cache --update alpine-sdk libc6-compat ffmpeg python git make pkgconfig autoconf automake libtool bison flex\
             && adduser -D -h /home/container container
 
 USER        container
