@@ -7,7 +7,7 @@ FROM        node:8-alpine
 
 LABEL       author="BierqueJason" maintainer="bierquejason@gmail.com"
 
-RUN         apk add --no-cache --update alpine-sdk libc6-compat ffmpeg python git make pkgconfig autoconf automake libtool bison flex libpixman-1-dev\
+RUN         apk add --no-cache --update alpine-sdk libc6-compat ffmpeg python git make pkgconfig autoconf automake libtool bison flex libcairo2-dev libjpeg-dev libgif-dev\
             && adduser -D -h /home/container container
 
 RUN  wget --no-check-certificate https://ftp.gnu.org/gnu/libtool/libtool-2.4.2.tar.gz
