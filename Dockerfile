@@ -17,6 +17,6 @@ USER        container
 ENV         USER=container HOME=/home/container
 ENV PKG_CONFIG_PATH="/usr/lib/pkgconfig/:/usr/local/lib/pkgconfig/:/usr/local/lib/libgit2/lib/pkgconfig:/usr/local/lib/openssl/lib/pkgconfig:/usr/local/lib/libssh2:/usr/include/"
 WORKDIR     /home/container
-
+RUN npm i -g canvas-prebuilt
 COPY        ./entrypoint.sh /entrypoint.sh
 CMD         ["/bin/ash", "/entrypoint.sh"]
