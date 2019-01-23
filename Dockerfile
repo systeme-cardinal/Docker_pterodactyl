@@ -7,7 +7,7 @@ FROM        node:8-alpine
 
 LABEL       author="BierqueJason" maintainer="bierquejason@gmail.com"
 
-RUN         apk add --no-cache --update alpine-sdk libc6-compat ffmpeg python git make pkgconfig build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev\
+RUN         apk add --no-cache --update alpine-sdk libc6-compat ffmpeg python git make pkgconfig libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev\
             && adduser -D -h /home/container container
 
 USER        container
