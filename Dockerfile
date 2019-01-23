@@ -7,11 +7,12 @@ FROM        node:8-alpine
 
 LABEL       author="BierqueJason" maintainer="bierquejason@gmail.com"
 
-RUN         apk add --no-cache --update alpine-sdk libc6-compat ffmpeg python git make pkgconfig libgconf-2-4\
+RUN         apk add --no-cache --update alpine-sdk libc6-compat ffmpeg python git make pkgconfig 'pkgconfig(gnutls)' \
             && adduser -D -h /home/container container
 
 USER        container
 ENV         USER=container HOME=/home/container
+ENV PKG_CONFIG_PATH="/usr/lib/pkgconfig/:/usr/local/lib/pkgconfig/:/usr/local/lib/libgit2/lib/pkgconfig:/usr/local/lib/openssl/lib/pkgconfig:/usr/local/lib/libssh2"
 WORKDIR     /home/container
 
 COPY        ./entrypoint.sh /entrypoint.sh
