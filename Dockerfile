@@ -17,9 +17,6 @@ RUN apk --no-cache add --update font-adobe-100dpi ttf-dejavu msttcorefonts-insta
 update-ms-fonts && \
 fc-cache -f
 
-COPY ./fonts/ /usr/share/fonts/
-RUN chmod a+r /usr/share/fonts/PingFang.ttf
-
 USER        container
 ENV         USER=container HOME=/home/container
 ENV PKG_CONFIG_PATH="/usr/lib/pkgconfig/:/usr/local/lib/pkgconfig/:/usr/local/lib/libgit2/lib/pkgconfig:/usr/local/lib/openssl/lib/pkgconfig:/usr/local/lib/libssh2:/usr/include/"
