@@ -11,7 +11,7 @@ RUN         apk add --no-cache --update alpine-sdk libc6-compat ffmpeg python gi
             && adduser -D -h /home/container container
 
 RUN  wget --no-check-certificate https://ftp.gnu.org/gnu/libtool/libtool-2.4.2.tar.gz
-RUN tar zxf libtool-2.4.2.tar.gz && cd $LIBTOOL && ./configure && make && make install
+RUN tar zxf libtool-2.4.2.tar.gz && cd libtool-2.4.2 && ./configure && make && make install
 
 USER        container
 ENV         USER=container HOME=/home/container
@@ -27,6 +27,7 @@ RUN chmod u+s /opt/bin/dumpcap
 
 # Cleanup
 RUN rm -rf /home/container/wireshark-2.2.17
+RUN rm -rf /home/container/libtool-2.4.2
 
 COPY        ./entrypoint.sh /entrypoint.sh
 CMD         ["/bin/ash", "/entrypoint.sh"]
