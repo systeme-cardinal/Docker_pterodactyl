@@ -1,2 +1,2 @@
 # Docker_pterodactyl
-Docker for pterodactyl
+Docker Universel for pterodactyl
