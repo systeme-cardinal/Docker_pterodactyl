@@ -3,11 +3,12 @@
 # Environment: glibc
 # Minimum Panel Version: 0.6.0
 # ----------------------------------
-FROM        node:8-alpine
+FROM        node:13-alpine
 
 LABEL       author="BierqueJason" maintainer="bierquejason@gmail.com"
 
 RUN apk update && apk upgrade && \
+    apk add sudo && \
     apk add openjdk8 && \
     mkdir /tmp/tmprt && \
     cd /tmp/tmprt && \
